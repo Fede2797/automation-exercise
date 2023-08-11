@@ -1,0 +1,18 @@
+{
+  "name": "automation-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts",
+    "test-report": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --reporter-options reportDir=C:/Users/fede2/OneDrive/Desktop/Javascript/Selenium/automation-exercise/reports,reportFilename=testResults"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "selenium-webdriver": "^4.11.1"
+  }
+}
