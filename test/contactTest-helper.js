@@ -3,25 +3,6 @@ const assert = require("assert");
 const { By } = require("selenium-webdriver");
 const { excerciseUrl } = require("../helper/helper");
 
-const navigateToWebsite = async( driver ) => {
-    // Navigate to website
-    await driver.get(excerciseUrl);
-    const currentUrl = await driver.getCurrentUrl();
-    assert.strictEqual(currentUrl, excerciseUrl, "Current url isn't the same as the excercise url");
-    
-    // Validate visibility of the website
-    let featuresItem = await driver.findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/h2")).getText();
-    let carouselItem = await driver.findElement(By.xpath("/html/body/section[1]/div/div/div/div/div"));
-
-    assert.strictEqual(featuresItem, "FEATURES ITEMS", "'FEATURES ITEMS' text not showing");
-
-    try {
-      assert.ok(carouselItem, "The carousel Item exists");
-    } catch(error) {
-      assert.fail("The carousel Item doesn't exist");
-    }
-}
-
 const contactSection = async( driver ) => {
     await driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[8]/a")).click();
     const validation = await driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/h2"));
@@ -54,7 +35,6 @@ const returnHome = async( driver ) => {
 }
 
 module.exports = {
-    navigateToWebsite,
     contactSection,
     sendMessage,
     returnHome,

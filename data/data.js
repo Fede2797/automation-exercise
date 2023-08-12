@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const incorrect = {
   EMAIL: 'email',
   PASSWORD: 'password',
@@ -99,14 +101,14 @@ const contactMessageData =[
       email: 'trial-mail@gmail.com',
       subject: 'Sujeto del mensaje',
       message: 'Este es el mensaje',
-      filePath: FILE_PATH + '/mononoke.png',
+      filePath: process.env.FILE_PATH + '/mononoke.png',
   },
   {
       name: 'John',
       email: 'trial-mail100@gmail.com',
       subject: 'Message subject',
       message: 'This is the message',
-      filePath: FILE_PATH + '/car.jpg',
+      filePath: process.env.FILE_PATH + '/car.jpg',
   },
 ]
 

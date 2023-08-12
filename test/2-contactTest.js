@@ -1,9 +1,9 @@
 const { Builder, Browser } = require("selenium-webdriver");
 const chrome = require('selenium-webdriver/chrome');
-const { navigateToWebsite, 
-    contactSection, 
+const { contactSection, 
     sendMessage, 
     returnHome} = require("./contactTest-helper");
+const { navigateToWebsite } = require("../helper/helper");
 const { contactMessageData } = require("../data/data");
 
 //* Extensions for chrome
@@ -23,7 +23,7 @@ before( async() => {
 
 after( async() => await driver.quit() );
 
-describe.only("Test Case 6: Contact Us Form", async() => {
+describe("Test Case 6: Contact Us Form", async() => {
     contactMessageData.map( data => {
         describe(`Sending contact us message by ${data.email}`, async() => {
             it("1. Navigate to url && Verify that home page is visible", async() => await navigateToWebsite( driver ) );
