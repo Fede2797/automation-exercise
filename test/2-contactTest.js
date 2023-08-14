@@ -2,7 +2,7 @@ const { Builder, Browser } = require("selenium-webdriver");
 const chrome = require('selenium-webdriver/chrome');
 const { contactSection, 
     sendMessage, 
-    returnHome} = require("./contactTest-helper");
+    returnHome} = require("./2-contactTest-helper");
 const { navigateToWebsite } = require("../helper/helper");
 const { contactMessageData } = require("../data/data");
 
