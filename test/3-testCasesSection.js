@@ -11,16 +11,17 @@ chromeOptions.addExtensions(extensionPath);
 
 let driver;
 
-before( async() => {
-    driver = await new Builder()
-        .setChromeOptions(chromeOptions)
-        .forBrowser(Browser.CHROME)
-        .build();
-})
+describe("Test Case 7: Verify Test Cases Page", async() => {
 
-after( async() => await driver.quit() );
+    before( async() => {
+        driver = await new Builder()
+            .setChromeOptions(chromeOptions)
+            .forBrowser(Browser.CHROME)
+            .build();
+    })
+    
+    after( async() => await driver.quit() );
 
-describe.only("Test Case 7: Verify Test Cases Page", async() => {
     it("1. Navigate to url && Verify that home page is visible successfully", async() => navigateToWebsite( driver ));
     it("2. Verify user is navigated to test cases page successfully", async() => validateTestCases( driver ));
 })

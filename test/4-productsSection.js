@@ -11,16 +11,17 @@ chromeOptions.addExtensions(extensionPath);
 
 let driver;
 
-before( async() => {
-    driver = await new Builder()
-        .setChromeOptions(chromeOptions)
-        .forBrowser(Browser.CHROME)
-        .build();
-})
-
-after( async() => await driver.quit() );
-
 describe.only("Test Case 8: Verify All Products and product detail page", async() => {
+    
+    before( async() => {
+        driver = await new Builder()
+            .setChromeOptions(chromeOptions)
+            .forBrowser(Browser.CHROME)
+            .build();
+    })
+    
+    after( async() => await driver.quit() );
+
     it("1. Navigate to url && Verify that home page is visible successfully", async() => navigateToWebsite( driver ));
     //todo 4. Click on 'Products' button
     //todo 5. Verify user is navigated to ALL PRODUCTS page successfully

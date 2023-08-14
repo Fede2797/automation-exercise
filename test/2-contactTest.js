@@ -14,16 +14,17 @@ chromeOptions.addExtensions(extensionPath);
 
 let driver;
 
-before( async() => {
-    driver = await new Builder()
-        .setChromeOptions(chromeOptions)
-        .forBrowser(Browser.CHROME)
-        .build();
-})
-
-after( async() => await driver.quit() );
-
 describe("Test Case 6: Contact Us Form", async() => {
+
+    before( async() => {
+        driver = await new Builder()
+            .setChromeOptions(chromeOptions)
+            .forBrowser(Browser.CHROME)
+            .build();
+    })
+    
+    after( async() => await driver.quit() );
+
     contactMessageData.map( data => {
         describe(`Sending contact us message by ${data.email}`, async() => {
             it("1. Navigate to url && Verify that home page is visible", async() => await navigateToWebsite( driver ) );

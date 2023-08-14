@@ -7,7 +7,7 @@ const { homepageValidation,
   logInAttempt, 
   logOutUser, 
   accessSignUpSection, 
-  signupWithExistingEmail } = require("./authTest-helper");
+  signupWithExistingEmail } = require("./1-authTest-helper");
 
 //* Extensions for chrome
 const extensionPath = './extensions/ublock.crx';
