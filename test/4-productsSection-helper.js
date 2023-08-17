@@ -1,6 +1,6 @@
 const { By } = require("selenium-webdriver");
 const assert = require("assert");
-const { excerciseUrl } = require("../helper/helper");
+const { excerciseUrl, getRandomInt } = require("../helper/helper");
 
 const validateVisibility = async( driver ) => {
     await driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[2]/a")).click();
@@ -9,6 +9,7 @@ const validateVisibility = async( driver ) => {
 
     try {
         const items = await driver.findElement(By.className("features_items"));
+        console.log(items);
         assert.ok(items, "The products are visible");
     } catch (error) {
         assert.fail("The product list is not visible");
@@ -16,7 +17,13 @@ const validateVisibility = async( driver ) => {
 }
 
 const validateProductView = async( driver ) => {
-    await driver.findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[2]/ul/li/a")).click();
+    // const products = await driver.findElements(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[2]/ul/li/a/div"));
+    const products = await driver.findElements(By.xpath("/html/body/section[2]/div/div/div[2]/div/div"));
+    const productsCount = products.length - 2;
+    const prodNumber = getRandomInt(productsCount) + 2;
+    
+    await driver.findElement(By.xpath(`/html/body/section[2]/div/div/div[2]/div/div[${prodNumber}]/div/div[2]/ul/li/a`)).click();
+
     try {
         const name = await driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/h2")).getText();
         const category = await driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[1]")).getText();
